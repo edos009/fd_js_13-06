@@ -1,11 +1,6 @@
 "use strict";
 
-// const sum = (a, b) => {
-//   return a + b;
-// };
+//Get summa all arguments function
+const getSum = (...argument) => argument.reduce((accumulator, element) => accumulator + element);
 
-const sum = (a, b) =>  a + b;
-console.log(sum(7, 7));
-
-const square = (n) => n * n;
-console.log(square(5));
+console.log(getSum(1, 2, 3, 4, 5, 6));
