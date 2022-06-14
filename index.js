@@ -1,21 +1,11 @@
 "use strict";
 
-const site = {
-  title: "green site",
-  headers: ["header 1", "header 2", "header 3"],
-  showHeaders() {
-    console.log(this);
-    this.headers.forEach((header) => {
-      console.log(`${header} | ${this.title}`);
-    });
-  },
-};
+// const sum = (a, b) => {
+//   return a + b;
+// };
 
-site.showHeaders();
+const sum = (a, b) =>  a + b;
+console.log(sum(7, 7));
 
-/*
-1 - arrow function;
-2 - save this in variable - self;
-3 - argument for callback - this;
-4 - function.bind(this);
-*/
+const square = (n) => n * n;
+console.log(square(5));
