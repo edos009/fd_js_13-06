@@ -6,6 +6,7 @@ const str = "to Be or NoT to bE";
 const getStringToJadenCase = (string, separator = " ") =>
   string
     .split(separator)
+    .filter((elem) => elem)
     .map((elem) => elem.at(0).toUpperCase() + elem.toLowerCase().slice(1))
     .join(" ");
 
