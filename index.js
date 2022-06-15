@@ -1,13 +1,28 @@
 "use strict";
 
-//Get summa all arguments function
-const getSum = (...theArguments) =>
-  theArguments.reduce((accumulator, element) => accumulator + element);
+//Рекурсия - это способность функции, которая вызывает сама себя.
 
-console.log(getSum(1, 2, 3, 4, 5, 6));
+const fuctorial = (num = 4) => {
+  if (num < 0) {
+    return null;
+  }
+  if (num === 1 || num === 0) {
+    return 1;
+  }
+  return num * fuctorial(num - 1);
+};
 
-const arr1 = ['a', 'e', 'i', 'o', 'u', 'y'];
-const arr2 = ['k', 'l', 'm', 'n', 'b', 'x'];
+console.log(fuctorial(5));
 
-const arr3 = [...arr1, ...arr2];
-console.log(arr3);
+  debugger;
+const getPow = (num = 2, pow = 3) => {
+  if (pow < 0) {
+    return null;
+  }
+  if (pow === 0) {
+    return 1;
+  }
+  return num * getPow(num, pow - 1);
+};
+
+console.log(getPow());
