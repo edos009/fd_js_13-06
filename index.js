@@ -1,13 +1,30 @@
 "use strict";
 
 //
-const str = "to Be or NoT to bE";
+const str = "I love to eat ice cream";
+const vowels = ["a", "e", "i", "o", "u", "y"];
 
-const getStringToJadenCase = (string, separator = " ") =>
+const getCountVowel = (string, vowels) =>
   string
-    .split(separator)
-    .filter((elem) => elem)
-    .map((elem) => elem.at(0).toUpperCase() + elem.toLowerCase().slice(1))
-    .join(" ");
+    .toLowerCase()
+    .split("")
+    .filter((elem) => vowels.includes(elem)).length;
 
-console.log(getStringToJadenCase(str));
+console.log(getCountVowel(str, vowels));
+
+//"Fistname Lastname" => "Lastname F."
+
+const fullName = "edik tiutiunnyk";
+
+const getProcessedFullname = (string, separator = " ") => {
+  const arrReverseFullName = string
+    .split(separator)
+    .reverse()
+    .map((elem) => elem.at(0).toUpperCase() + elem.slice(1));
+
+  return (
+    arrReverseFullName.shift() + " " + arrReverseFullName.map((elem) => elem.at(0) + ".").join()
+  );
+};
+
+console.log(getProcessedFullname(fullName));
