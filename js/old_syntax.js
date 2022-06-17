@@ -1,7 +1,7 @@
 //! Пример засиси через конструктор
 
 "use strict";
-
+/*
 function User(fname, sname, age) {
   this.fname = fname;
   this.sname = sname;
@@ -19,4 +19,4 @@ function UserPrototype() {
 User.prototype = new UserPrototype();
 
 const userOld = new User("Edik", "Tiutiunnyk", 26);
-
+*/

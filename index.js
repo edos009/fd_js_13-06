@@ -9,32 +9,135 @@
 }
 */
 
-class Animal {
-  constructor(name, type, countOfLags) {
-    this.name = name;
-    this.type = type;
-    this.countOfLags = countOfLags;
+//ООП
+/*
+1. Инкапсуляция
+2. Наследования
+3. Полиморфизм
+*/
+
+/*
+class User {
+  constructor(fname, lname) {
+    this.fname = fname;
+    this.lname = lname;
+    this._isBane = false;
   }
 
-  eat() {
-    return `${this.name} is eating`;
+  get isBane() {
+    return this._isBane;
   }
 
-  get countOfLags() {
-    return this._countOfLags;
+  getFullName() {
+    return `${this.fname} ${this.lname}`;
   }
 
-  set countOfLags(value) {
-    if (typeof value !== "number") {
-      throw new TypeError("Count of lags must be number");
-    }
-    if (value < 0 || value > 4) {
-      throw new RangeError("Count of lags must be 4");
-    }
-
-    this._countOfLags = value;
+  static isUser(obj) {
+    return obj instanceof User;
   }
 }
 
-const cat = new Animal("Sam", "cat", 4);
+class Moderator extends User {
+  constructor(fname, lname, permision) {
+    super(fname, lname);
+    this.permision = permision;
+  }
+}
 
+class Admin extends Moderator {
+  constructor(fname, lname, permision) {
+    super(fname, lname, permision);
+  }
+
+  ban(object) {
+    if (User.isUser(object) === false) {
+      throw new TypeError("Must be user");
+    }
+    object._isBane = true;
+  }
+
+  unBan(object) {
+    if (User.isUser(object) === false) {
+      throw new TypeError("Must be user");
+    }
+    object._isBane = false;
+  }
+}
+
+class Editor extends Moderator {
+  constructor(fname, lname, permision, email) {
+    super(fname, lname, permision);
+    this.email = email;
+  }
+}
+
+const user = new User("Eduard", "Tiutiunnyk");
+const admin = new Admin("Admin", "Admin", true);
+*/
+
+class Squirrel {
+  constructor(name, color) {
+    this.name = name;
+    this.color = color;
+  }
+
+  jump() {
+    return `${this.name} is jumping`;
+  }
+
+  static isSquirrel(obj) {
+    return obj instanceof Squirrel;
+  }
+}
+
+class FlySquirrel extends Squirrel {
+  constructor(name, color, maxDistance) {
+    super(name, color);
+    this.maxDistance = maxDistance;
+  }
+
+  get maxDistance() {
+    return this._maxDistance;
+  }
+
+  set maxDistance(maxDistance) {
+    if (typeof maxDistance !== "number") {
+      throw new TypeError("Max distance must be number");
+    }
+
+    if (maxDistance < 0 || maxDistance > 90) {
+      throw new RangeError("Max distance must be 0..500");
+    }
+
+    this._maxDistance = maxDistance;
+  }
+
+  fly(dist) {
+    return dist <= this.maxDistance
+      ? `${this.name} is flying ${dist}`
+      : `${this.name} is not flying ${dist}`;
+  }
+}
+
+class MagicSquirrel extends FlySquirrel {
+  constructor(name, color, maxDistance, arrSongs) {
+    super(name, color, maxDistance);
+    this.arrSongs = arrSongs;
+  }
+
+  songSing() {
+    this.arrSongs.forEach((song) => {
+      console.log(`${this.name} is singing ${song}`);
+    });
+  }
+}
+
+const squirel = new Squirrel("Curl", "Orange");
+const flySquirrel = new FlySquirrel("Bob", "Red", 80);
+const magicSquirrel = new MagicSquirrel("Sam", "Brown", 70, [
+  "song1",
+  "song2",
+  "song3",
+]);
+
+magicSquirrel.songSing();
