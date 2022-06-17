@@ -67,6 +67,7 @@ const userNew = new UserClass("Eduard", "Tiutiunnyk", 26);
 console.log(userNew.isAdult());
 */
 
+/*
 class Auto {
   #model;
   constructor(model, ownWeight) {
@@ -154,3 +155,4 @@ class Fuel {
 const fuel = new Fuel(30, 0.7)
 
 console.log(auto.getFullWeight(fuel));
+*/
