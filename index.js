@@ -75,6 +75,7 @@ const user = new User("Eduard", "Tiutiunnyk");
 const admin = new Admin("Admin", "Admin", true);
 */
 
+/*
 class Squirrel {
   constructor(name, color) {
     this.name = name;
@@ -141,3 +142,4 @@ const magicSquirrel = new MagicSquirrel("Sam", "Brown", 70, [
 ]);
 
 magicSquirrel.songSing();
+*/
