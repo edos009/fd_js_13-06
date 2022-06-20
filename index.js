@@ -1,9 +1,20 @@
 "use strict";
 
-const symbol = Symbol("This is symbol");
+const getRandomArray = (min, max) => {
+  const arrNumbers = [];
+  for (let i = 0; i < 20; i++) {
+    arrNumbers.push(Math.round(Math.random() * (max - min) + min))
+  }
+  return arrNumbers;
+}
 
-const obj = {
-  [symbol]: "I am ED",
-};
+const getMinNumberArray = (arr) => {
+  return Math.min(...arr);
+}
 
-console.log(obj[symbol]);
+const getMaxNumberArray = (arr) => {
+  return Math.max(...arr);
+}
+
+console.log(getMinNumberArray(getRandomArray(10,50)));
+console.log(getMaxNumberArray(getRandomArray(10, 50)));

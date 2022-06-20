@@ -1,5 +1,18 @@
 "use strict";
 
+class MyArrayIterator {
+  constructor(myArray) {
+    this.collection = myArray;
+    this.currentPosition = 0
+  }
+  next() {
+    return {
+      value: this.collection[this.currentPosition++],
+      done: this.currentPosition > this.collection.length,
+    }
+  }
+}
+
 class MyArrayClass {
   constructor() {
     this.length = 0;
@@ -62,6 +75,7 @@ class MyArrayClass {
       throw new TypeError("Need instance MyArrayClass");
     }
     const newMyArr = new MyArrayClass();
+    console.log(this);
     for (let i = 0; i < this.length; i++) {
       newMyArr.push(this[i]);
     }
@@ -89,13 +103,15 @@ class MyArrayClass {
   static isMyArrayClass(obj) {
     return obj instanceof MyArrayClass;
   }
+
+  [Symbol.iterator]() {
+    return new MyArrayIterator(this);
+  }
 }
 
-const myArray = new MyArrayClass(
-  1,
-  new MyArrayClass(2, 2, new MyArrayClass(3, 3, 3, 3, 3), 2, 2),
-  1,
-  1,
-  1
-);
-console.log(myArray.flat(1));
+const myArray1 = new MyArrayClass(1, 2, 3, 4, 5);
+const myArray2 = new MyArrayClass(1, 2, 3, 4, 5);
+// console.log(...myArray);
+for (const elem of myArray) {
+  // console.log(elem);
+}
