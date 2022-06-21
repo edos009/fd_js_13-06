@@ -75,7 +75,6 @@ class MyArrayClass {
       throw new TypeError("Need instance MyArrayClass");
     }
     const newMyArr = new MyArrayClass();
-    console.log(this);
     for (let i = 0; i < this.length; i++) {
       newMyArr.push(this[i]);
     }
@@ -111,7 +110,7 @@ class MyArrayClass {
 
 const myArray1 = new MyArrayClass(1, 2, 3, 4, 5);
 const myArray2 = new MyArrayClass(1, 2, 3, 4, 5);
-// console.log(...myArray);
-for (const elem of myArray) {
-  // console.log(elem);
+console.log(...myArray1);
+for (const elem of myArray1) {
+  console.log(elem);
 }
