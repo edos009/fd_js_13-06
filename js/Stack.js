@@ -41,5 +41,5 @@ class Stack {
   }
 }
 
-const stack = new Stack(5, 1, 1, 1, 1, 1);
-console.log(stack);
+const stack1 = new Stack(5, 1, 1, 1, 1, 1);
+console.log(stack1);
