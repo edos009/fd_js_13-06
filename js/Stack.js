@@ -1,43 +1,56 @@
 "use strict";
 
+// РЕАЛИЗАЦИЯ СТЕКА
+
 class Stack {
   constructor(maxSize = 5, ...args) {
-    this._maxSize = maxSize;
-    this._size = 0;
+    this._maxSize = maxSize; // устанавливаем максимальный размер стека
+    this._size = 0; //устанавливаем начальный размер стека
     for (const arg of args) {
-      this.push(arg);
+      //цикл для перебора списка елементв
+      this.push(arg); // на кажной итерации цикла добавляем итерируемый элемент в стек
     }
   }
 
+  // геттер возвращающий размер стека
   get size() {
     return this._size;
   }
 
+  // метод геттер проверяющий пустой ли стек
   get empty() {
     return this._size === 0;
   }
 
+  // метод для добавления элемента в стек
   push(arg) {
+    // передаем в метод элемент
     if (this._size >= this._maxSize) {
-      throw new RangeError("Our stack is full!");
+      // условие на проверку больше либо равен размер стека максимальному размеру стека
+      throw new RangeError("Our stack is full!"); // если условие верно, выкинуть ошибку
     }
-    this[`_${this._size}`] = arg;
-    return ++this._size;
+    //иначе
+    this[`_${this._size}`] = arg; // в стек с индексом размера стека записываем значение элемента
+    return ++this._size; // увеличиваем размер стека и возвращаем его
   }
 
+  // метод для удаления элемента из стек
   pop() {
     if (this.empty) {
-      return;
+      // условие на проверку пустой ли стек
+      return; // если пустой, вернуть undefined
     }
-    const last = this[`_${this._size - 1}`];
-    delete this[`_${this._size - 1}`];
+    //иначе
+    const last = this[`_${this._size - 1}`]; // записываем значение первого элемента стека с индексом размера стека - 1
+    delete this[`_${this._size - 1}`]; //удаляем первый элемент стека с индексом размера стека - 1
 
-    --this._size;
-    return last;
+    --this._size; // уменьшаем размер стека
+    return last;  // возвращаем значение удаленного элемента из стека
   }
 
+  //метод для просмотра что лежит в первом элементе стека
   pick() {
-    return this[`_${this._size - 1}`];
+    return this[`_${this._size - 1}`]; // возвращает первый элемент стека с индексом размера стека - 1
   }
 }
 
